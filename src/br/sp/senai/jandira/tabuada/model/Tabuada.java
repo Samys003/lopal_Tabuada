@@ -26,22 +26,27 @@ public class Tabuada {
 		this.maximoMultiplicador = maximoMultiplicador;
 	}
 	
-	public void calcularTabuada() {
+	public String[] calcularTabuada() {
 		if(minimoMultiplicador > maximoMultiplicador) {
 			double temp = minimoMultiplicador;
 			minimoMultiplicador = maximoMultiplicador;
 			maximoMultiplicador = temp;
 			
 		}
-	
+		int tamanho = (int) (maximoMultiplicador - minimoMultiplicador + 1);
+		String resultado[] = new String[tamanho];
+		
+		int contador = 0;
 		while (minimoMultiplicador <= maximoMultiplicador) {
 			double produto = multiplicando * minimoMultiplicador;
-			System.out.printf("%s x %s = %s\n", multiplicando, minimoMultiplicador, produto);
-		    System.out.println();
+			String linha = multiplicando + "x" + minimoMultiplicador + "=" + produto;
+			resultado[contador] = linha;
+			System.out.println(linha);
 		    minimoMultiplicador++;
 		
 		}
 		System.out.println("Fim");
+		return resultado;
 		
 	}	
 }
